@@ -128,6 +128,16 @@ union all
 select first_name,last_name,'doctor' as role from doctors
 
 
+select concat(upper(last_name),',',lower(first_name)) from patients order by first_name desc
+
+
+
+select province_id,sum(height) as num from patients group by province_id 
+having num>=7000 order by num desc
+
+
+select max(weight)-min(weight) from patients where last_name='Maroni' 
+
 
 
 
