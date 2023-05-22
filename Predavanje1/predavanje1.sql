@@ -84,3 +84,56 @@ select first_name from patients
 
 select * from doctors
 where first_name='Claude'
+
+
+
+select distinct year(birth_date) as years from patients order by years asc
+
+select first_name from patients group by first_name
+having count()=1
+
+
+select patient_id,first_name from patients where lower(first_name) like 's____%s'
+
+
+
+select patients.patient_id,first_name,last_name from patients
+join admissions on patients.patient_id=admissions.patient_id
+where diagnosis='Dementia'
+
+select first_name from patients order by len(first_name),first_name asc
+
+
+select sum (case
+             when gender='M' then 1
+             else 0
+            end),sum(case
+                     when gender='F' then 1
+                     else 0
+                    end)
+            from patients 
+
+
+
+select first_name,last_name,allergies from patients where allergies='Penicillin'
+or allergies='Morphine' order by allergies,first_name,last_name 
+
+select patient_id,diagnosis from admissions group by patient_id,diagnosis having count()>1
+ 
+
+select city,count() as num from patients group by city order by num desc,city asc
+
+select first_name,last_name,'patient' as role from patients
+union all
+select first_name,last_name,'doctor' as role from doctors
+
+
+
+
+
+
+
+
+
+
+

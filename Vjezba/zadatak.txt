@@ -1,0 +1,11 @@
+ZADATAK:
+Izraditi bankovni sustav 
+Sustav treba sadržavati sljedeće funkciionalnosti
+1.poduznice
+2.klijente koji su registrirani na podruznice
+3.bankovni racun klinta
+4.povijest transakcija
+
+koraci:
+1.izraditi ERD
+2izraditi bazu podataka
