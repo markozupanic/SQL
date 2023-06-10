@@ -26,8 +26,9 @@ def asd():
   
   
   class Controller:
-      def __init__(self):
+      def __init__():
          pass
+        
   
   
   

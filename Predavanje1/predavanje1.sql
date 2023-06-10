@@ -139,6 +139,42 @@ having num>=7000 order by num desc
 select max(weight)-min(weight) from patients where last_name='Maroni' 
 
 
+select day(admission_date),count() from admissions group by day(admission_date) 
+order by count() desc
+
+select * from admissions where patient_id=542 order by 
+admission_date desc limit 1
+
+
+select patient_id,attending_doctor_id,diagnosis from admissions
+where (patient_id%2=1 and attending_doctor_id in (1,5,19))
+or (attending_doctor_id like '%2%' and len(patient_id)=3)
+
+
+select first_name,last_name,count() from admissions
+join doctors on admissions.attending_doctor_id=doctors.doctor_id
+group by attending_doctor_id
+
+
+select province_names.province_name,count() from patients
+join province_names on patients.province_id=province_names.province_id
+group by patients.province_id order by  count() desc
+
+
+select concat(p.first_name,' ',p.last_name),a.diagnosis,concat(d.first_name,' ',d.last_name) 
+from admissions a 
+join patients p on a.patient_id=p.patient_id
+join doctors d on a.attending_doctor_id=d.doctor_id
+
+select first_name,last_name,count() from patients
+group by first_name,last_name
+having count()>1
+
+
+select count(),round(weight/10,0)*10 as weight_group from patients
+group by weight_group
+order by weight_group desc
+
 
 
 
